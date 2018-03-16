@@ -15,4 +15,5 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.on('/').render('index')
+Route.on('/page').render('page')

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello Adonis</title>
+
+  {{ css('styles')}}
+  {{ css('jumbotron')}}
+</head>
+<body>
+
+    @!section('before-nav')
+
+        @include('partials.nav')
+
+    @!section('after-nav')
+
+    @!section('before-main')
+    
+        <main role="main">
+
+        @!section('main')
+
+        </main>
+
+    @!section('after-main')
+
+    @!section('before-footer')
+
+    <footer class="container">
+        @include('partials.footer')
+    </footer>
+
+    @!section('after-footer')
+    
+
+    @!section('before-scripts')
+
+        @include('partials.common-scripts')
+    @!section('after-scripts')
+
+</body>
+</html>
