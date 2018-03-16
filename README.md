@@ -6,8 +6,9 @@ An extensive course teaching you how to create your own blog using [AdonisJS](ht
 
 Each branch is a new starting point for various videos
 
-1 - start (starting for Part 1)
-2 - basic-edge-gulp-setup-done (starting for Part 3)
+1 - start (Part 1)
+2 - basic-edge-setup-done (Part 2)
+2 - basic-gulp-setup-done (Part 3)
 
 ## Important Commands
 
