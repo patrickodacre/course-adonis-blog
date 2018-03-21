@@ -8,7 +8,10 @@
     "start": "node server.js",
     "test": "node ace test"
   },
-  "keywords": ["adonisjs", "adonis-app"],
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
+  ],
   "author": "",
   "license": "UNLICENSED",
   "private": true,
@@ -36,7 +39,9 @@
     "gulp-sass": "3.1.0",
     "gulp-sourcemaps": "2.6.4",
     "gulp-uglify": "3.0.0",
-    "jquery-slim": "3.0.0"
+    "jquery-slim": "3.0.0",
+    "merge2": "^1.2.1",
+    "turbolinks": "^5.1.1"
   },
   "autoload": {
     "App": "./app"

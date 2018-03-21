@@ -6,6 +6,7 @@ const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
+const merge = require('merge2')
 
 const paths = {
   nodePath: 'node_modules',
@@ -14,22 +15,23 @@ const paths = {
 }
 
 gulp.task('vendor-js', function() {
-  return gulp
+  const streamOne = gulp
     .src([
       paths.nodePath + '/jquery-slim/dist/jquery.slim.js',
       paths.nodePath + '/bootstrap/dist/js/bootstrap.bundle.js'
     ])
-    .pipe(sourcemaps.init())
-    .pipe(concat('vendor-scripts.js'))
-    .pipe(gulp.dest('public'))
     .pipe(
       uglify().on('error', function(err) {
         console.log(err)
       })
     )
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('public'))
-    .pipe(sourcemaps.write('.'))
+
+  const streamTwo = gulp.src([
+    paths.nodePath + '/turbolinks/dist/turbolinks.js'
+  ])
+
+  return merge(streamOne, streamTwo)
+    .pipe(concat('vendor-scripts.min.js'))
     .pipe(gulp.dest('public'))
 })
 

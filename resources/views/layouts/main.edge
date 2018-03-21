@@ -6,6 +6,9 @@
 
   {{ css('styles')}}
   {{ css('jumbotron')}}
+    @!section('before-scripts')
+        @include('partials.common-scripts')
+    @!section('after-scripts')
 </head>
 <body>
 
@@ -32,12 +35,6 @@
     </footer>
 
     @!section('after-footer')
-    
-
-    @!section('before-scripts')
-
-        @include('partials.common-scripts')
-    @!section('after-scripts')
 
 </body>
 </html>
