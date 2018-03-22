@@ -71,12 +71,12 @@ class CategoryController {
     const query = Category.query()
 
     if (Number.isInteger(parseInt(slug, 10))) {
-      query.where('id', slug).orWhere('slug', slug)
+      query.where('id', slug)
     } else {
       query.where('slug', slug)
     }
 
-    const category = await query.first()
+    return await query.first()
   }
 }
 
