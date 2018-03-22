@@ -16,7 +16,7 @@ const paths = {
 
 gulp.task('move-icons', function() {
   return gulp
-    .src([paths.nodePath + 'feather-icons/dist/icons/*.svg'])
+    .src([paths.nodePath + '/feather-icons/dist/icons/*.svg'])
     .pipe(gulp.dest('./public/icons/'))
 })
 
