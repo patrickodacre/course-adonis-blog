@@ -14,11 +14,18 @@ const paths = {
   jsPath: 'assets/js'
 }
 
+gulp.task('move-icons', function() {
+  return gulp
+    .src([paths.nodePath + 'feather-icons/dist/icons/*.svg'])
+    .pipe(gulp.dest('./public/icons/'))
+})
+
 gulp.task('vendor-js', function() {
   const streamOne = gulp
     .src([
       paths.nodePath + '/jquery-slim/dist/jquery.slim.js',
-      paths.nodePath + '/bootstrap/dist/js/bootstrap.bundle.js'
+      paths.nodePath + '/bootstrap/dist/js/bootstrap.bundle.js',
+      paths.nodePath + '/feather-icons/dist/feather.js'
     ])
     .pipe(
       uglify().on('error', function(err) {
@@ -81,4 +88,10 @@ gulp.task('watch', function() {
   gulp.watch(paths.jsPath + '/**/*.js', ['custom-js'])
 })
 
-gulp.task('default', ['watch', 'vendor-js', 'styles', 'custom-js'])
+gulp.task('default', [
+  'watch',
+  'vendor-js',
+  'styles',
+  'custom-js',
+  'move-icons'
+])
