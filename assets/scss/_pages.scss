@@ -1,0 +1,31 @@
+.categoryList {
+  .list-group-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .categoryList__actions {
+    margin-left: auto;
+
+    > *:nth-child(n + 2) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.categoryList__addNewBtn {
+  .text {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .categoryList__addNewBtn {
+    .icon {
+      display: none;
+    }
+    .text {
+      display: block;
+    }
+  }
+}
