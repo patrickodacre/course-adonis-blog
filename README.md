@@ -8,7 +8,9 @@ Each branch is a new starting point for the corresponding video:
 
 1.  start [Setup / Edge Basics -- Part 1](https://www.youtube.com/watch?v=rxzWUyimDHo)
 2.  basic-edge-setup-done [Setting up Gulp -- Part 2](https://www.youtube.com/watch?v=-6X8_PvHbfI)
-3.  basic-gulp-setup-done (Part 3)
+3.  begin-turbolinks [Turbolinks -- Part 3](https://www.youtube.com/watch?v=TW0RSd91Ti8)
+4.  begin-adonis-slugify [Adonis Slugify -- Part 4](https://www.youtube.com/watch?v=BjvJ7IraLJY)
+5.  begin-feather-icons [Feather Icons -- Part 5](https://www.youtube.com/watch?v=2MFKS9_oX9w)
 
 ## Important Commands
 
