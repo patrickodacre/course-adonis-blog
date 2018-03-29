@@ -1,0 +1,37 @@
+@layout('layouts.main')
+
+@section('main')
+        <div class="row categoryList">
+            <div class="col-10">
+
+                @if(categories && categories.length > 0)
+                    <ul class="list-group">
+                        @each(category in categories)
+                            <li class="list-group-item">
+                                <a href="/categories/{{category.slug}}">
+                                    {{category.name}} - {{category.description}}
+                                </a>
+
+                                <div class="categoryList__actions">
+                                    <a href="/categories/edit/{{category.id}}">
+                                        <span data-feather="edit" ></span>
+                                    </a>
+                                </div>
+                            </li>
+                            
+                        @endeach
+                    </ul>
+                @else
+                    <p>You don't have any categories, yet. <a href="/categories/add">Create your first.</a></p>
+                @endif
+            </div>
+            <div class="col-2">
+                @if(categories && categories.length > 0)
+                    <a class="btn btn-primary categoryList__addNewBtn" role="button" href="/categories/add">
+                        <span class="text">Add Category</span>
+                        <span class="icon">+</span>
+                    </a>
+                @endif
+            </div>
+        </div>
+@endsection
