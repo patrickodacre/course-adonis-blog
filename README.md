@@ -11,6 +11,8 @@ Each branch is a new starting point for the corresponding video:
 3.  begin-turbolinks [Turbolinks -- Part 3](https://www.youtube.com/watch?v=TW0RSd91Ti8)
 4.  begin-adonis-slugify [Adonis Slugify -- Part 4](https://www.youtube.com/watch?v=BjvJ7IraLJY)
 5.  begin-feather-icons [Feather Icons -- Part 5](https://www.youtube.com/watch?v=2MFKS9_oX9w)
+6.  begin-setup-database-connection [Set Up MySQL Database -- Part 6](https://www.youtube.com/watch?v=y68qxNImAgY)
+7.  begin-add-categories [Add & Update Categories -- Part 7](https://www.youtube.com/watch?v=jH2GIyQTwi0)
 
 ## Important Commands
 
