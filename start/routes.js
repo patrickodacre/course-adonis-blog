@@ -26,3 +26,4 @@ Route.get('categories/edit/:id', 'CategoryController.edit')
 
 Route.post('categories', 'CategoryController.store')
 Route.put('categories/:id', 'CategoryController.update')
+Route.delete('categories/:id', 'CategoryController.destroy')

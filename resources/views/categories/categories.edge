@@ -1,7 +1,7 @@
 @layout('layouts.main')
 
 @section('main')
-        <div class="row categoryList">
+        <div class="row categoryList" data-controller="categories">
             <div class="col-10">
 
                 @if(categories && categories.length > 0)
@@ -15,6 +15,10 @@
                                 <div class="categoryList__actions">
                                     <a href="/categories/edit/{{category.id}}">
                                         <span data-feather="edit" ></span>
+                                    </a>
+                                    <a href="#" 
+                                    data-action="click->categories#deleteCategory">
+                                        <span data-feather="trash-2" ></span>
                                     </a>
                                 </div>
                             </li>

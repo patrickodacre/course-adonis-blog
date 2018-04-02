@@ -25,7 +25,8 @@ gulp.task('vendor-js', function() {
     .src([
       paths.nodePath + '/jquery-slim/dist/jquery.slim.js',
       paths.nodePath + '/bootstrap/dist/js/bootstrap.bundle.js',
-      paths.nodePath + '/feather-icons/dist/feather.js'
+      paths.nodePath + '/feather-icons/dist/feather.js',
+      paths.nodePath + '/axios/dist/axios.js'
     ])
     .pipe(
       uglify().on('error', function(err) {
@@ -34,7 +35,8 @@ gulp.task('vendor-js', function() {
     )
 
   const streamTwo = gulp.src([
-    paths.nodePath + '/turbolinks/dist/turbolinks.js'
+    paths.nodePath + '/turbolinks/dist/turbolinks.js',
+    paths.nodePath + '/stimulus/dist/stimulus.umd.js'
   ])
 
   return merge(streamOne, streamTwo)
@@ -44,7 +46,7 @@ gulp.task('vendor-js', function() {
 
 gulp.task('custom-js', function() {
   return gulp
-    .src([paths.jsPath + '/**/*.js'])
+    .src([paths.jsPath + '/Categories.js', paths.jsPath + '/app.js'])
     .pipe(sourcemaps.init())
     .pipe(babel({ presets: ['@babel/preset-env'] }))
     .pipe(concat('custom-scripts.js'))
