@@ -46,9 +46,14 @@ gulp.task('vendor-js', function() {
 
 gulp.task('custom-js', function() {
   return gulp
-    .src([paths.jsPath + '/Categories.js', paths.jsPath + '/app.js'])
+    .src([paths.jsPath + '/ListItem.js', paths.jsPath + '/app.js'])
     .pipe(sourcemaps.init())
-    .pipe(babel({ presets: ['@babel/preset-env'] }))
+    .pipe(
+      babel({
+        presets: ['@babel/preset-env'],
+        plugins: ['transform-class-properties']
+      })
+    )
     .pipe(concat('custom-scripts.js'))
     .pipe(gulp.dest('public'))
     .pipe(

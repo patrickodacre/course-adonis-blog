@@ -1,6 +1,6 @@
 const app = Stimulus.Application.start()
 
-app.register('categories', Categories)
+app.register('list-item', ListItem)
 
 document.addEventListener('turbolinks:load', evt => {
   feather.replace()

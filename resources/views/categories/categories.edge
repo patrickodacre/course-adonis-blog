@@ -1,13 +1,13 @@
 @layout('layouts.main')
 
 @section('main')
-        <div class="row categoryList" data-controller="categories">
+        <div class="row categoryList">
             <div class="col-10">
 
                 @if(categories && categories.length > 0)
                     <ul class="list-group">
                         @each(category in categories)
-                            <li class="list-group-item">
+                            <li class="list-group-item" data-controller="list-item" data-list-item-id="{{category.id}}">
                                 <a href="/categories/{{category.slug}}">
                                     {{category.name}} - {{category.description}}
                                 </a>
@@ -17,7 +17,7 @@
                                         <span data-feather="edit" ></span>
                                     </a>
                                     <a href="#" 
-                                    data-action="click->categories#deleteCategory">
+                                    data-action="click->list-item#destroyItem">
                                         <span data-feather="trash-2" ></span>
                                     </a>
                                 </div>

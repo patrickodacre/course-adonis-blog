@@ -14,40 +14,47 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Categories =
+var ListItem =
 /*#__PURE__*/
 function (_Stimulus$Controller) {
-  _inherits(Categories, _Stimulus$Controller);
+  _inherits(ListItem, _Stimulus$Controller);
 
-  function Categories() {
-    _classCallCheck(this, Categories);
+  function ListItem() {
+    _classCallCheck(this, ListItem);
 
-    return _possibleConstructorReturn(this, (Categories.__proto__ || Object.getPrototypeOf(Categories)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ListItem.__proto__ || Object.getPrototypeOf(ListItem)).apply(this, arguments));
   }
 
-  _createClass(Categories, [{
+  _createClass(ListItem, [{
     key: "initialize",
-    value: function initialize() {}
+    value: function initialize() {
+      console.log('initialized', this.element);
+    }
   }, {
-    key: "deleteCategory",
-    value: function deleteCategory(evt) {
+    key: "destroyItem",
+    value: function destroyItem(evt) {
       evt.preventDefault();
-      var catId = evt.currentTarget.getAttribute('data-category-id');
-      return axios.delete('http://localhost:3333/categories/' + catId).then(function (resp) {
+      console.log('clicked ', this.categoryID);
+      return axios.delete('http://localhost:3333/categories/' + this.categoryID).then(function (resp) {
         location.reload();
       });
+    }
+  }, {
+    key: "categoryID",
+    get: function get() {
+      return this.data.get('id');
     }
   }], [{
     key: "targets",
     get: function get() {}
   }]);
 
-  return Categories;
+  return ListItem;
 }(Stimulus.Controller);
 "use strict";
 
 var app = Stimulus.Application.start();
-app.register('categories', Categories);
+app.register('list-item', ListItem);
 document.addEventListener('turbolinks:load', function (evt) {
   feather.replace();
 });
