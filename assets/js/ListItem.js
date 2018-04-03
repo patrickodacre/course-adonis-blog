@@ -1,21 +1,22 @@
 class ListItem extends Stimulus.Controller {
   static get targets() {}
-  initialize() {
-    console.log('initialized', this.element)
-  }
+  initialize() {}
 
   destroyItem(evt) {
     evt.preventDefault()
-    console.log('clicked ', this.categoryID)
 
     return axios
-      .delete('http://localhost:3333/categories/' + this.categoryID)
+      .delete(`http://localhost:3333/${this.path}/${this.itemId}`)
       .then(resp => {
         location.reload()
       })
   }
 
-  get categoryID() {
+  get itemId() {
     return this.data.get('id')
+  }
+
+  get path() {
+    return this.data.get('path')
   }
 }
