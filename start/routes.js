@@ -27,3 +27,8 @@ Route.get('categories/edit/:id', 'CategoryController.edit')
 Route.post('categories', 'CategoryController.store')
 Route.put('categories/:id', 'CategoryController.update')
 Route.delete('categories/:id', 'CategoryController.destroy')
+
+/* Posts */
+
+Route.get('posts/add', 'PostController.create')
+Route.post('posts/preview', 'PostController.preview')
