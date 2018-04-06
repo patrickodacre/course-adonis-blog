@@ -46,7 +46,11 @@ gulp.task('vendor-js', function() {
 
 gulp.task('custom-js', function() {
   return gulp
-    .src([paths.jsPath + '/ListItem.js', paths.jsPath + '/app.js'])
+    .src([
+      paths.jsPath + '/AddPost.js',
+      paths.jsPath + '/ListItem.js',
+      paths.jsPath + '/app.js'
+    ])
     .pipe(sourcemaps.init())
     .pipe(
       babel({
