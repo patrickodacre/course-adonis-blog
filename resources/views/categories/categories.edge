@@ -1,7 +1,7 @@
 @layout('layouts.main')
 
 @section('main')
-        <div class="row categoryList">
+        <div class="row btlList">
             <div class="col-10">
 
                 @if(categories && categories.length > 0)
@@ -12,7 +12,7 @@
                                     {{category.name}} - {{category.description}}
                                 </a>
 
-                                <div class="categoryList__actions">
+                                <div class="btlList__actions">
                                     <a href="/categories/edit/{{category.id}}">
                                         <span data-feather="edit" ></span>
                                     </a>
@@ -31,7 +31,7 @@
             </div>
             <div class="col-2">
                 @if(categories && categories.length > 0)
-                    <a class="btn btn-primary categoryList__addNewBtn" role="button" href="/categories/add">
+                    <a class="btn btn-primary btlList__addNewBtn" role="button" href="/categories/add">
                         <span class="text">Add Category</span>
                         <span class="icon">+</span>
                     </a>

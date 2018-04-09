@@ -1,11 +1,15 @@
-.categoryList {
+.btlList {
   .list-group-item {
     display: flex;
     align-items: center;
   }
 
-  .categoryList__actions {
+  .btlList__actions {
     margin-left: auto;
+
+    .destroyItem {
+      color: #cc0000;
+    }
 
     > *:nth-child(n + 2) {
       margin-left: 1rem;
@@ -13,14 +17,14 @@
   }
 }
 
-.categoryList__addNewBtn {
+.btlList__addNewBtn {
   .text {
     display: none;
   }
 }
 
 @media screen and (min-width: 640px) {
-  .categoryList__addNewBtn {
+  .btlList__addNewBtn {
     .icon {
       display: none;
     }
