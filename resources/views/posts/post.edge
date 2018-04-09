@@ -1,0 +1,13 @@
+@layout('layouts.main')
+@section('main')
+
+    <section id="blog-post">
+        <header>
+            <h1>{{post.title}}</h1>
+        </header>
+
+        <div id="post-body">
+            {{{post.body}}}
+        </div>
+    </section>
+@endsection

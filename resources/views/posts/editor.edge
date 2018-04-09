@@ -1,0 +1,53 @@
+@layout('layouts.main')
+
+@section('before-head-close')
+    <meta name="turbolinks-cache-control" content="no-cache">
+@endsection
+
+@section('main')
+    <section data-controller="add-post">
+
+        <div class="container" style="margin: 2rem 0;">
+            <button data-action="add-post#edit" class="btn btn-secondary btn-sm">Markdown</button>
+            <button data-action="add-post#preview" class="btn btn-info btn-sm">Preview</button>
+            <button type="submit" form="post-form" class="btn btn-secondary btn-sm">Save</button>
+        </div>
+
+        <div data-target="add-post.mdeditor">
+            <form 
+                action="/posts" 
+                method="POST" 
+                id="post-form" 
+                name="md-post-editor"
+                >
+
+                {{csrfField()}}
+
+                <div class="form-group">
+                    @if(categories && categories.length > 0)
+                        <select class="custom-select custom-select-lg mb-3" name="category_id">
+                            @each(category in categories)
+                                <option selected value={{category.id}}>{{category.name}}</option>
+                            @endeach
+                        </select>
+                    @else
+                        You don't have any categories, yet. <a href="/categories/add">Create your first.</a>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <textarea
+                        rows="25" 
+                        data-action="change->add-post#mdupdate"
+                        data-target="add-post.markdown"
+                        class="full-height form-control"
+                        id="md-editor"
+                        name="markdown"
+                        >{{old('markdown', markdown)}}</textarea>
+                </div>
+            
+            </form>
+        
+        </div>
+        <div data-target="add-post.mdpreview" id="post-preview" class="hidden"></div>
+    </section>
+@endsection

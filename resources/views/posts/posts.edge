@@ -1,0 +1,37 @@
+@layout('layouts.main')
+
+@section('main') 
+<div class="row btlList">
+    <div class="col-10">
+        <ul class="list-group">
+            @each(post in posts)
+                <li class="list-group-item"  
+                    data-controller="list-item" 
+                    data-list-item-id="{{post.id}}" 
+                    data-list-item-path="posts"
+                    >
+                    <div class="">
+                        <a href="{{ route('single_post', {slug: post.slug}) }}"     class="list-group-item-action"> 
+                            {{ post.title }} 
+                            @if(post.summary)
+                                - {{post.summary}}
+                            @endif
+                        </a>
+                    </div>
+                    <div class="btlList__actions">
+                        <i class="destroyItem" data-action="click->list-item#destroyItem">
+                            <span data-feather="trash-2" ></span>
+                        </i>  
+                    </div>
+                </li>
+            @endeach
+        </ul>
+    </div>
+    <div class="col-2">
+        <a class="btn btn-primary btlList__addNewBtn" role="button" href="/posts/add">
+            <span class="text">Add Post</span>
+            <span class="icon">+</span>
+        </a>
+    </div>
+</div>
+@endsection

@@ -30,5 +30,9 @@ Route.delete('categories/:id', 'CategoryController.destroy')
 
 /* Posts */
 
+Route.get('posts', 'PostController.index')
 Route.get('posts/add', 'PostController.create')
+Route.get('posts/:slug', 'PostController.show').as('single_post')
 Route.post('posts/preview', 'PostController.preview')
+Route.post('posts', 'PostController.store')
+Route.delete('posts/:id', 'PostController.destroy')

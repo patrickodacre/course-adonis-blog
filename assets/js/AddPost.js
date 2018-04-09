@@ -7,25 +7,22 @@ class AddPost extends Stimulus.Controller {
     ]
   }
   initialize() {
-    console.log('init add post controller')
+    this.markdownUpdated = true
+  }
 
-    this.markdownTarget.value = `---\ntitle: \nseo_title: \npublished: false\nseo_description: \npost_slug: \nsummary: \n---\n\nThe Title is above...\n\nFront matter above, and write your post here...`
-
+  mdupdate() {
     this.markdownUpdated = true
   }
 
   edit() {
-    console.log('editing')
-    this.mdeditorTarget.setAttribute('style', '')
-    this.mdpreviewTarget.setAttribute('style', 'display: none;')
+    this.mdeditorTarget.classList.remove('hidden')
+    this.mdpreviewTarget.classList.add('hidden')
   }
 
   preview() {
-    console.log('previewing')
-
     if (!this.markdownUpdated) {
-      this.mdeditorTarget.setAttribute('style', 'display: none;')
-      this.mdpreviewTarget.setAttribute('style', '')
+      this.mdeditorTarget.classList.add('hidden')
+      this.mdpreviewTarget.classList.remove('hidden')
       return
     }
 
@@ -47,8 +44,8 @@ class AddPost extends Stimulus.Controller {
       .then(data => {
         this.mdpreviewTarget.innerHTML = data.data.data
         this.markdownUpdated = false
-        this.mdeditorTarget.setAttribute('style', 'display: none;')
-        this.mdpreviewTarget.setAttribute('style', '')
+        this.mdeditorTarget.classList.add('hidden')
+        this.mdpreviewTarget.classList.remove('hidden')
       })
   }
 }
